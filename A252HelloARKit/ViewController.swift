@@ -53,6 +53,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.scene.rootNode.addChildNode(textNode)
         
+        let earth = SCNSphere(radius: 0.2)
+        earth.firstMaterial?.diffuse.contents = UIImage(named: "worldmap")
+        let earthNode = SCNNode(geometry: earth)
+        earthNode.position = SCNVector3(0, 0, -1.5)
+        sceneView.scene.rootNode.addChildNode(earthNode)
+        
 
     }
     

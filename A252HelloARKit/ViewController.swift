@@ -125,6 +125,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.addChildNode(plane) //把自訂義的可視元件，蓋一層到平台上
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+          if let plane = self.planes.filter { plane in
+              return plane.anchor.identifier == anchor.identifier
+          }.first{
+              plane.update(anchor: anchor as! ARPlaneAnchor)
+          }
+      }
+
+    
+    
+    
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

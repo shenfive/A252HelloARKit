@@ -37,7 +37,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.position = SCNVector3(0, 0, -0.5) //設定 node 在空間的位置
         sceneView.scene.rootNode.addChildNode(node) //把 node 加入到目前的 scene 上
         
+//        let box2 = SCNBox(width: 0.1, height: 0.15, length: 0.1, chamferRadius: 0.01) //新增一個 BOX
+//        let material2 = SCNMaterial() //新增材質
+//        material2.diffuse.contents = UIColor.green  //材質內容為紅色
+//        box2.materials = [material2] //把 box 的貼圖材質加進去
+//        let node2 = SCNNode(geometry: box2) //新增一個 Box
+//        node2.position = SCNVector3(0, 0.5, -0.5) //設定 node 在空間的位置
+//        sceneView.scene.rootNode.addChildNode(node2) //把 node 加入到目前的 scene 上
+        let text = SCNText(string: "我是 Danny!", extrusionDepth: 1.0)
+        text.firstMaterial?.diffuse.contents = UIColor.blue
         
+        let textNode = SCNNode(geometry: text)
+        textNode.position = SCNVector3(0, 0, -1)
+        textNode.scale = SCNVector3(0.01, 0.01, 0.01)
+        
+        sceneView.scene.rootNode.addChildNode(textNode)
         
 
     }
